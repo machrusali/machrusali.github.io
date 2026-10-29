@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react"
+import { Fragment, useEffect, useState, type ReactNode } from "react"
 
 type IconName = "arrow" | "education" | "linkedin" | "mail" | "map"
 
@@ -194,6 +194,18 @@ export default function App() {
   }, [])
 
   const active = experiences[activeExperience]
+
+  const selectExperience = (index: number) => {
+    setActiveExperience(index)
+
+    if (window.matchMedia("(max-width: 620px)").matches) {
+      window.requestAnimationFrame(() => {
+        document
+          .querySelector(`[data-experience-index="${index}"]`)
+          ?.scrollIntoView({ behavior: "smooth", block: "start" })
+      })
+    }
+  }
 
   return (
     <main>
@@ -448,17 +460,29 @@ export default function App() {
             aria-label="Riwayat perusahaan"
           >
             {experiences.map((item, index) => (
-              <button
-                key={item.company + item.period}
-                className={activeExperience === index ? "active" : ""}
-                onClick={() => setActiveExperience(index)}
-                role="tab"
-                aria-selected={activeExperience === index}
-              >
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <b>{item.company}</b>
-                <Icon name="arrow" size={18} />
-              </button>
+              <Fragment key={item.company + item.period}>
+                <button
+                  data-experience-index={index}
+                  className={activeExperience === index ? "active" : ""}
+                  onClick={() => selectExperience(index)}
+                  role="tab"
+                  aria-selected={activeExperience === index}
+                >
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <b>{item.company}</b>
+                  <Icon name="arrow" size={18} />
+                </button>
+                {activeExperience === index && (
+                  <article className="experience-stage mobile-experience-stage">
+                    <div className="stage-top"><span>{active.period}</span><span className="stage-dot">●</span></div>
+                    <p className="stage-label">PERAN</p>
+                    <h3>{active.role}</h3>
+                    <p className="stage-place"><Icon name="map" size={16} /> {active.place}</p>
+                    <p className="stage-copy">{active.description}</p>
+                    <div className="stage-tags">{active.stack.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                  </article>
+                )}
+              </Fragment>
             ))}
           </div>
           <article
@@ -495,19 +519,39 @@ export default function App() {
         </div>
       </section>
 
-      <section className="education-strip">
+      <section className="education-record" aria-labelledby="education-title">
         <div className="shell">
-          <span className="education-icon">
-            <Icon name="education" size={27} />
-          </span>
-          <p>
-            Fondasi akademik
-            <small>S1 Sistem Informasi</small>
-          </p>
-          <p>
-            Universitas Narotama
-            <small>Agustus 2011 — Februari 2016</small>
-          </p>
+          <article className="education-card">
+            <header className="education-card-header">
+              <span className="education-card-code">
+                <i aria-hidden="true" /> education_foundation
+              </span>
+              <span className="education-card-label">ACADEMIC RECORD</span>
+            </header>
+            <div className="education-card-main">
+              <div className="education-card-copy">
+                <span className="education-card-icon">
+                  <Icon name="education" size={27} />
+                </span>
+                <div>
+                  <p className="education-degree">S1 Sistem Informasi</p>
+                  <h2 id="education-title">Fondasi akademik</h2>
+                </div>
+              </div>
+              <div className="education-card-meta">
+                <span className="education-meta-label">UNIVERSITAS</span>
+                <p className="education-school">Universitas Narotama</p>
+                <div className="education-period">
+                  <span className="education-meta-label">PERIODE STUDI</span>
+                  <div className="education-period-dates">
+                    <time dateTime="2011-08">Agustus 2011</time>
+                    <i aria-hidden="true">—</i>
+                    <time dateTime="2016-02">Februari 2016</time>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
