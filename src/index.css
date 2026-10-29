@@ -404,7 +404,28 @@ footer { background: #27130d; }
 .rail-items div { display: flex; flex-direction: column; gap: 5px; }
 .rail-items strong { color: #dcdcaa; font-size: 30px; letter-spacing: -.06em; line-height: 1; }
 .rail-items span { color: #8b949e; font: 11px/1.45 'DM Mono'; text-transform: uppercase; }
-.manifesto .big-copy { font-size: clamp(52px, 7vw, 108px); letter-spacing: -.075em; line-height: .98; max-width: 1180px; }
+.manifesto .big-copy {
+  color: #f0f1eb;
+  font-size: clamp(44px, 5.2vw, 82px);
+  font-weight: 500;
+  letter-spacing: -.065em;
+  line-height: 1.02;
+  max-width: 980px;
+  text-wrap: balance;
+}
+.manifesto .big-copy .manifesto-light {
+  color: #f0f1eb !important;
+  display: inline;
+  font-weight: 500;
+}
+.manifesto .big-copy .manifesto-lead {
+  color: #569cd6 !important;
+  font-weight: 700;
+}
+.manifesto .big-copy .manifesto-accent {
+  color: #569cd6 !important;
+  font-weight: 500;
+}
 .manifesto-notes { align-items: start; gap: 70px; margin-top: 82px; }
 .manifesto-notes > p { font-size: 16px; max-width: 590px; }
 .about-domains { display: grid; gap: 1px; grid-template-columns: repeat(3, 1fr); margin-top: 48px; }
@@ -1126,6 +1147,38 @@ img, svg { max-width: 100%; }
 }
 
 /* Rebuild the closing area from a clean three-block layout. */
+.journey .journey-ui {
+  grid-template-columns: minmax(280px, .95fr) minmax(0, 1.05fr);
+  max-width: 1180px;
+}
+.journey .stage-label {
+  margin-top: 35px;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+}
+footer > p:last-child {
+  justify-self: end;
+}
+
+@media (max-width: 620px) {
+  .journey .journey-ui {
+    grid-template-columns: 1fr;
+  }
+  .journey .stage-label {
+    margin-top: 58px;
+  }
+
+  footer {
+    display: flex;
+  }
+  footer > p:last-child {
+    justify-self: auto;
+  }
+}
+
 .education-strip {
   background: #111820;
   border-bottom: 1px solid #29313d;
@@ -1237,6 +1290,135 @@ body { scrollbar-color: #29313d #0d1117; }
   box-shadow: 0 0 0 10px #0d1117;
   isolation: isolate;
   z-index: 4;
+}
+
+@media (min-width: 901px) {
+  .hero-bottom {
+    justify-content: flex-start;
+    margin: 92px 0 0;
+    max-width: 690px;
+    padding: 0;
+  }
+
+  .hero-bottom p {
+    margin-left: 0;
+    margin-right: 70px;
+  }
+
+  .hero-bottom::after {
+    display: none !important;
+  }
+}
+
+/* The intro copy is plain hero content, never a status-card overlay. */
+.hero-bottom,
+.hero-bottom p {
+  background: transparent !important;
+  font-family: 'Manrope', sans-serif;
+}
+
+.hero-bottom::after {
+  content: none !important;
+  display: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Keep the hero arrow visible while hovered. */
+.hero-bottom .round-link:hover {
+  background: #172b31 !important;
+  border-color: #4ec9b099 !important;
+  box-shadow: 0 0 0 10px #0d1117, 0 0 18px #4ec9b022 !important;
+  color: #9be7d8 !important;
+  opacity: 1 !important;
+  transform: rotate(90deg) scale(1.02);
+  visibility: visible !important;
+}
+
+@media (min-width: 901px) {
+  .hero-bottom p {
+    position: relative;
+    left: 60px;
+    top: 12px;
+  }
+}
+
+/* Project cards use the portfolio's blue/teal glow, without touching other cards. */
+.project-card:hover {
+  box-shadow: 0 18px 35px #4ec9b044 !important;
+}
+
+/* Restore the agreed right-side placement for section code decorations. */
+.expertise-code {
+  bottom: auto;
+  left: 68%;
+  right: auto;
+  top: 132px;
+  transform: rotate(4deg);
+}
+
+.projects-code {
+  bottom: auto;
+  left: auto;
+  right: 8%;
+  top: 118px;
+  transform: rotate(3deg);
+}
+
+/* Replace legacy orange text accents with the dark theme's muted green. */
+.capability-grid small,
+.skill-row > span {
+  color: #6a9955 !important;
+}
+
+.project-number,
+.project-type,
+.dark .project-number,
+.dark .project-type {
+  color: #6a9955 !important;
+}
+
+/* Keep the code block fixed; only the return line types in. */
+.code-float {
+  animation: none !important;
+  transform: none !important;
+}
+
+.code-float .line-one,
+.code-float .line-two {
+  animation: none !important;
+  max-width: none !important;
+}
+
+.code-float .line-three {
+  animation: typing-line 4s steps(20, end) infinite !important;
+  max-width: 0;
+  overflow: hidden !important;
+}
+
+@media (min-width: 901px) {
+  .code-float { bottom: 80px; }
+}
+
+/* Remove the flex spacer before the intro copy. */
+@media (min-width: 901px) {
+  .hero-bottom {
+    justify-content: flex-start !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    max-width: 690px !important;
+    padding-left: 0 !important;
+    width: min(690px, calc(100% - 40px));
+  }
+
+  .hero-bottom p {
+    margin-left: 0 !important;
+    margin-right: 70px !important;
+    max-width: 500px;
+    padding: 0 !important;
+    text-align: left;
+  }
 }
 .hero-bottom::before {
   background: #0d1117;

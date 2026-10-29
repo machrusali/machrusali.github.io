@@ -234,40 +234,40 @@ export default function App() {
       </nav>
 
       <section className="hero" id="home">
-        <div className="hero-grid" />
-        <div className="orb orb-one" />
-        <div className="orb orb-two" />
-        <div className="space-system" aria-hidden="true">
+        <span className="hero-grid" />
+        <span className="orb orb-one" />
+        <span className="orb orb-two" />
+        <aside className="space-system" aria-hidden="true">
           <span className="space-ring ring-a"><i /></span>
           <span className="space-ring ring-b"><i /></span>
           <span className="space-ring ring-c"><i /></span>
           <span className="space-core" />
-        </div>
-        <div className="hero-inner">
-          <div className="hero-kicker reveal">
+        </aside>
+        <main className="hero-inner">
+          <header className="hero-kicker reveal">
             <span>
               <i /> Available for collaboration
             </span>
             <span>Surabaya · Indonesia</span>
-          </div>
-          <div className="hero-profile reveal delay-one">
-            <div className="hero-portrait">
+          </header>
+          <article className="hero-profile reveal delay-one">
+            <figure className="hero-portrait">
               <ChromaPhoto src="/assets/machrus-alifuddin-portrait.jpg" alt="Machrus Alifuddin" />
-            </div>
-            <div className="hero-intro">
+            </figure>
+            <article className="hero-intro">
               <h1>Machrus<br /><em>Alifuddin</em></h1>
               <p className="hero-role">Software Engineer &amp; Digital Builder</p>
-              <div className="hero-facts">
+              <p className="hero-facts">
                 <span><b>10+</b> tahun pengalaman</span>
                 <span><b>Surabaya</b> · Indonesia</span>
-              </div>
-              <div className="hero-actions">
+              </p>
+              <nav className="hero-actions">
                 <a href="#projects">Lihat project <Icon name="arrow" size={17} /></a>
                 <a href="#journey">Perjalanan karier</a>
-              </div>
-            </div>
-          </div>
-          <div className="hero-bottom reveal delay-two">
+              </nav>
+            </article>
+          </article>
+          <footer className="hero-bottom reveal delay-two">
             <p>
               Saya <strong>Machrus Alifuddin</strong>, software engineer yang
               mengubah masalah kompleks menjadi produk digital yang bekerja
@@ -280,16 +280,16 @@ export default function App() {
             >
               <Icon name="arrow" size={26} />
             </a>
-          </div>
-        </div>
-        <div className="code-float" aria-hidden="true">
-          <span>01</span> <span className="typing-line">const idea = understand(problem);</span>
+          </footer>
+        </main>
+        <pre className="code-float" aria-hidden="true">
+          <span>01</span> <span className="typing-line line-one">const idea = understand(problem);</span>
           <br />
-          <span>02</span> const system = build(solution);
+          <span>02</span> <span className="typing-line line-two">const system = build(solution);</span>
           <br />
-          <span>03</span> return ship(system);
-        </div>
-        <div className="section-code hero-code" aria-hidden="true">const <b>developer</b> = {`{`}<br />&nbsp;&nbsp;build(<i>impact</i>);<br />{`}`}</div>
+          <span>03</span> <span className="typing-line line-three">return ship(system);</span>
+        </pre>
+        <aside className="section-code hero-code" aria-hidden="true">const <b>developer</b> = {`{`}<br />&nbsp;&nbsp;build(<i>impact</i>);<br />{`}`}</aside>
       </section>
 
       <div className="section-transition" aria-hidden="true">
@@ -310,7 +310,10 @@ export default function App() {
         </div>
         <div className="manifesto-copy">
           <p className="big-copy">
-            Software engineer yang tumbuh dari membangun sistem bisnis nyata.
+            <span className="manifesto-lead">Software engineer</span>{" "}
+            <span className="manifesto-light">yang tumbuh dari</span>{" "}
+            <span className="manifesto-accent">membangun</span>{" "}
+            <span className="manifesto-light">sistem bisnis nyata.</span>
           </p>
           <div className="manifesto-notes">
             <p>
