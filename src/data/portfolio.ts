@@ -9,7 +9,7 @@ export const portfolioContent = {
     location: "Surabaya · Indonesia",
     availability: "Available for collaboration",
     portraitSrc: "/assets/machrus-alifuddin-portrait.jpg",
-    email: "machrus.alifuddin21@gmail.com",
+    email: "machrusali.project@gmail.com",
     linkedIn: "https://linkedin.com/in/machrus-alifuddin-688467130",
   },
   navigation: [

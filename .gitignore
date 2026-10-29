@@ -5,3 +5,6 @@ node_modules/
 dist/
 .vite/
 coverage/
+
+# Local Git LFS object cache
+lfs/objects/

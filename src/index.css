@@ -103,7 +103,7 @@
 .hero-section__footer { align-items: end; display: flex; justify-content: flex-end; margin-top: 92px; }
 .hero-section__footer p { color: #aeb5ad; font-size: 15px; line-height: 1.8; margin: 0 70px 0 0; max-width: 490px; }
 .hero-section__footer strong { color: white; font-weight: 600; }
-.round-link { align-items: center; border: 1px solid #596058; border-radius: 50%; display: flex; height: 78px; justify-content: center; transform: rotate(90deg); transition: .25s; width: 78px; }
+.round-link { align-items: center; border: 1px solid #596058; border-radius: 50%; display: flex; height: 58px; justify-content: center; transform: rotate(90deg); transition: .25s; width: 58px; }
 .round-link:hover { background: var(--acid); border-color: var(--acid); color: var(--ink); transform: rotate(90deg) scale(1.08); }
 .code-decoration--floating { color: #6b736a; font: 9px/1.9 'DM Mono'; left: max(40px, calc((100vw - 1280px) / 2)); position: absolute; top: 205px; }
 .code-decoration--floating span { color: #424942; margin-right: 12px; }
@@ -218,7 +218,7 @@
   .hero-section h1 { font-size: 18vw; }
   .hero-section__footer { align-items: flex-start; flex-direction: column; gap: 28px; }
   .hero-section__footer p { margin: 0; }
-  .round-link { height: 60px; width: 60px; }
+  .round-link { height: 48px; width: 48px; }
   .about-section { padding-bottom: 100px; padding-top: 100px; }
   .about-section__notes { align-items: flex-start; flex-direction: column; gap: 45px; }
   .capabilities-section { padding: 100px 0; }
@@ -1189,7 +1189,7 @@ body { scrollbar-color: #29313d #0d1117; }
   .hero-section__footer p {
     position: relative;
     left: 60px;
-    top: 12px;
+    top: 0;
   }
 }
 
@@ -1285,6 +1285,11 @@ body { scrollbar-color: #29313d #0d1117; }
 
 /* Hero reset: one centered profile row and one independent lower information row. */
 @media (min-width: 901px) {
+  .hero-section {
+    min-height: 744px;
+    padding-bottom: 70px;
+  }
+
   .hero-section__inner {
     max-width: 1120px;
   }
@@ -1326,6 +1331,8 @@ body { scrollbar-color: #29313d #0d1117; }
     margin: 44px 0 0 auto;
     max-width: 690px;
     padding: 0 0 0 24px;
+    position: relative;
+    top: 5px;
   }
 
   .hero-section__footer p {
@@ -1335,12 +1342,12 @@ body { scrollbar-color: #29313d #0d1117; }
   }
 
   .hero-section__footer .round-link {
-    flex: 0 0 78px;
+    flex: 0 0 58px;
     margin-left: 18px;
   }
 
   .code-decoration--floating {
-    bottom: 64px;
+    bottom: 66px;
     left: max(24px, calc((100vw - 1120px) / 2));
     max-width: none;
     white-space: nowrap;
@@ -1592,5 +1599,13 @@ body { scrollbar-color: #29313d #0d1117; }
     height: 68px;
     padding-left: 20px;
     padding-right: 20px;
+  }
+}
+
+/* Slightly trim only the hero's bottom breathing room on smaller screens. */
+@media (max-width: 900px) {
+  .hero-section {
+    min-height: auto;
+    padding-bottom: 56px;
   }
 }
