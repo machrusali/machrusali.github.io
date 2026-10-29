@@ -30,8 +30,14 @@ export function ContactSection() {
         <a href={emailHref}>
           <Icon name="mail" size={18} /> {identity.email}
         </a>
+        <a href={identity.github} target="_blank" rel="noreferrer">
+          <Icon name="github" size={18} /> {portfolioContent.contact.githubLabel}
+        </a>
         <a href={identity.linkedIn} target="_blank" rel="noreferrer">
           <Icon name="linkedin" size={18} /> {portfolioContent.contact.linkedInLabel}
+        </a>
+        <a href={identity.pandaOren} target="_blank" rel="noreferrer">
+          <Icon name="website" size={18} /> {portfolioContent.contact.pandaOrenLabel}
         </a>
       </div>
     </section>

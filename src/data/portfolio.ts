@@ -10,7 +10,9 @@ export const portfolioContent = {
     availability: "Available for collaboration",
     portraitSrc: "/assets/machrus-alifuddin-portrait.jpg",
     email: "machrusali.project@gmail.com",
+    github: "https://github.com/machrusali",
     linkedIn: "https://linkedin.com/in/machrus-alifuddin-688467130",
+    pandaOren: "https://pandaoren.github.io",
   },
   navigation: [
     { label: "Tentang", href: "#about" },
@@ -259,7 +261,9 @@ export const portfolioContent = {
     titleSecondLine: "yang",
     titleAccent: "berguna.",
     emailLabel: "Mulai percakapan",
+    githubLabel: "GitHub",
     linkedInLabel: "LinkedIn",
+    pandaOrenLabel: "Panda Oren",
   },
   footer: "Software Engineer · Surabaya, Indonesia",
 } as const;
