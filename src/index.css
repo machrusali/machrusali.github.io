@@ -701,7 +701,7 @@ img, svg { max-width: 100%; }
 @keyframes portrait-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 @keyframes code-drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(8px, -5px); } }
 @keyframes cursor-blink { 50% { opacity: 0; } }
-@keyframes typing-line { 0%, 10% { max-width: 0; } 55%, 85% { max-width: 260px; } 100% { max-width: 0; } }
+@keyframes typing-line { 0%, 10% { max-width: 0; } 60%, 85% { max-width: 260px; } 100% { max-width: 0; } }
 @keyframes code-flicker { 0%, 100% { opacity: .35; } 50% { opacity: .7; } }
 @keyframes orbit-breathe { 50% { opacity: .65; } }
 @keyframes skill-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
@@ -1135,8 +1135,8 @@ body { scrollbar-color: #29313d #0d1117; }
   padding-right: 42px;
 }
 .hero-section__footer .round-link {
-  background: #0d1117;
-  box-shadow: 0 0 0 10px #0d1117;
+  background: transparent;
+  box-shadow: none;
   isolation: isolate;
   z-index: 4;
 }
@@ -1176,9 +1176,9 @@ body { scrollbar-color: #29313d #0d1117; }
 
 /* Keep the hero arrow visible while hovered. */
 .hero-section__footer .round-link:hover {
-  background: #172b31 !important;
+  background: transparent !important;
   border-color: #4ec9b099 !important;
-  box-shadow: 0 0 0 10px #0d1117, 0 0 18px #4ec9b022 !important;
+  box-shadow: 0 0 18px #4ec9b022 !important;
   color: #9be7d8 !important;
   opacity: 1 !important;
   transform: rotate(90deg) scale(1.02);
@@ -1241,7 +1241,7 @@ body { scrollbar-color: #29313d #0d1117; }
 }
 
 .code-decoration--floating .line-three {
-  animation: typing-line 4s steps(20, end) infinite !important;
+  animation: typing-line 9s steps(20, end) infinite !important;
   max-width: 0;
   overflow: hidden !important;
 }
